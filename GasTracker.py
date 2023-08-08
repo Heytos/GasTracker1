@@ -3,9 +3,6 @@ import json
 import configs
 from requests.exceptions import JSONDecodeError
 
-def test():
-    print('Ethgdsf')
-
 def gas_tracker():
     response = requests.get(configs.url, params=configs.params)
 
@@ -28,7 +25,6 @@ def gas_tracker():
     slow_gas_price = data['result']['SafeGasPrice']
     mid_gas_price = data['result']['ProposeGasPrice']
     fast_gas_price = data['result']['FastGasPrice']
-
 
     return f"Low: {slow_gas_price} gwei\nAvg: {mid_gas_price} gwei\nHigh: {fast_gas_price} gwei"
 
