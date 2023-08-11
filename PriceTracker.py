@@ -1,5 +1,6 @@
 import requests
 from requests.exceptions import HTTPError
+import GasTracker
 def price_check(symbol):
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
     parameters = {
