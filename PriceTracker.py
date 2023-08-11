@@ -8,7 +8,7 @@ def price_check(symbol):
     }
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': 'df269fa7-d67c-463d-88fc-b3c4e2c617bc',
+        'X-CMC_PRO_API_KEY': 'YOUR_API_KEY',
     }
 
     response = requests.get(url, params=parameters, headers=headers)
