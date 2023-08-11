@@ -1,6 +1,5 @@
 import requests
 from requests.exceptions import HTTPError
-import GasTracker
 def price_check(symbol):
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
     parameters = {
@@ -48,3 +47,5 @@ if __name__ == "__main__":
             print(f'+{percent_change_24h:.2f}%')
         else:
             print(f' {percent_change_24h:.2f}%')
+
+
