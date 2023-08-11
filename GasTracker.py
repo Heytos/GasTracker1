@@ -27,6 +27,5 @@ def gas_tracker():
     mid_gas_price = data['result'][GAS_PRICE_KEYS['mid']]
     fast_gas_price = data['result'][GAS_PRICE_KEYS['fast']]
 
-    return f"Low: {slow_gas_price} gwei\nAvg: {mid_gas_price} gwei\nHigh: {fast_gas_price} gwei"
+    return (f"\nLow: {slow_gas_price} gwei\nAvg: {mid_gas_price} gwei\nHigh: {fast_gas_price} gwei")
 
-print(gas_tracker())

@@ -8,7 +8,7 @@ def price_check(symbol):
     }
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': 'YOUR_API_KEY',
+        'X-CMC_PRO_API_KEY': 'df269fa7-d67c-463d-88fc-b3c4e2c617bc',
     }
 
     response = requests.get(url, params=parameters, headers=headers)
@@ -34,9 +34,10 @@ def price_check(symbol):
 
     return price, percent_change_24h
 
-if __name__ == "__main__":
-    token_symbol = input(
-        "Введите криптовалюту: ").upper()
+token_symbol = input("Введите криптовалюту: ").upper()
+
+# if __name__ == "__main__":
+def display_price():
     price, percent_change_24h = price_check(token_symbol)
 
     if price is None or percent_change_24h is None:
@@ -47,5 +48,9 @@ if __name__ == "__main__":
             print(f'+{percent_change_24h:.2f}%')
         else:
             print(f' {percent_change_24h:.2f}%')
+
+if __name__ == "__main__":
+    display_price()
+
 
 
