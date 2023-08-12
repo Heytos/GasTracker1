@@ -5,7 +5,7 @@ from requests.exceptions import JSONDecodeError
 from requests.exceptions import HTTPError
 from GasTracker_configs import GAS_PRICE_KEYS
 
-def gas_tracker():
+def display_gas():
     response = requests.get(GasTracker_configs.url, params=GasTracker_configs.params)
 
     try:
@@ -17,7 +17,7 @@ def gas_tracker():
         return ('Ошибка в получении данных API')
 
     if 'result' not in data or not isinstance(data['result'], dict):
-        return 'Возникла ошибка, переменные не найдены. Проверьте ваш API'
+        return 'Возникла ошибка, переменные не найдены'
 
     for key in GAS_PRICE_KEYS:
         if key not in GAS_PRICE_KEYS:

@@ -4,4 +4,4 @@ import GasTracker
 
 
 PriceTracker.display_price()
-print(GasTracker.gas_tracker())
+print(GasTracker.display_gas())
