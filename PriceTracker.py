@@ -1,6 +1,8 @@
 import requests
 from requests.exceptions import HTTPError
+
 def price_check(symbol):
+    # url вынести в конфиг (как и параметры и заголовки)
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
     parameters = {
         'symbol': symbol,
@@ -13,8 +15,10 @@ def price_check(symbol):
 
     response = requests.get(url, params=parameters, headers=headers)
 
+    # может вылететь JSONDecodeError
     data = response.json()
 
+    #  https://stackoverflow.com/questions/61463224/when-to-use-raise-for-status-vs-status-code-testing
     try:
         response.raise_for_status()
         price = data['data'][symbol]["quote"]['USD']['price']
@@ -29,11 +33,13 @@ def price_check(symbol):
         print ('Произошла ошибка, попробуйте позднее')
         return None, None
 
+    # Дублируешь получение цены, сначала в трай, потому тут
     price = data['data'][symbol]["quote"]['USD']['price']
     percent_change_24h = data['data'][symbol]['quote']['USD']['percent_change_24h']
 
     return price, percent_change_24h
 
+# надо в display_price() засунуть
 token_symbol = input("Введите криптовалюту: ").upper()
 
 # if __name__ == "__main__":

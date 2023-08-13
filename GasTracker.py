@@ -1,12 +1,12 @@
 import requests
 import json
-import GasTracker_configs
+import configs
 from requests.exceptions import JSONDecodeError
 from requests.exceptions import HTTPError
-from GasTracker_configs import GAS_PRICE_KEYS
+from configs import GAS_PRICE_KEYS
 
 def display_gas():
-    response = requests.get(GasTracker_configs.url, params=GasTracker_configs.params)
+    response = requests.get(configs.url, params=configs.params)
 
     try:
         response.raise_for_status()
